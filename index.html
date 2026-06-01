@@ -157,7 +157,7 @@
             ];
 
             // 2. 24小时防撞单分配缓存逻辑
-            const LOCK_DURATION = 24 * 60 * 60 * 1000; // 锁定24小时
+            const LOCK_DURATION = 180 * 24 * 60 * 60 * 1000; // 锁定24小时
             const now = new Date().getTime();
             let selectedTarget = null;
             const cachedShuntData = localStorage.getItem('wa_dating_assigned');
