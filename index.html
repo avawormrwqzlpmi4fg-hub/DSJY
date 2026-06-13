@@ -209,9 +209,18 @@
                 }
             }
 
-            // 监听按钮点击事件
-            whatsappBtn.addEventListener('click', function() {
+            // 监听按钮点击事件 (修复跳转拦截)
+            whatsappBtn.addEventListener('click', function(e) {
+                // 1. 阻止 <a> 标签默认的立刻跳转行为
+                e.preventDefault(); 
+                
+                // 2. 触发 TikTok 像素追踪
                 fireContactEvent();
+                
+                // 3. 延迟 300 毫秒（0.3秒）后，再执行 WhatsApp 的拉起/跳转
+                setTimeout(function() {
+                    window.location.href = targetUrl;
+                }, 300);
             });
 
         });
